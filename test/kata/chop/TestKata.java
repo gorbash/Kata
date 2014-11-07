@@ -8,6 +8,7 @@ import static junit.framework.Assert.assertEquals;
 
 /**
  * Created by GorbasH on 2014-11-07.
+ * Test suite for binary search implementation
  */
 
 public class TestKata {
@@ -59,14 +60,14 @@ public class TestKata {
 
 
     @Test
-    public void chopRecurrence100000Element() {
+    public void chopRecurrence1000000Element() {
         Set<Integer> prepSet = new TreeSet<Integer>();
         Random rand = new Random();
         for (int i = 0; i < 1000000; i++) {
             prepSet.add(rand.nextInt());
         }
 
-        List<Integer> testList = new ArrayList(prepSet);
+        List<Integer> testList = new ArrayList<Integer>(prepSet);
         int randValue = testList.get((int) (Math.random() * testList.size()));
         int expectedIndex = testList.indexOf(randValue);
 

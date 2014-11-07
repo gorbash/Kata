@@ -7,16 +7,34 @@ import java.util.List;
  */
 public class KataChopRecurrence implements KataChop {
 
-    private KataChopRecurrence() {
+    public static final int NOT_FOUND = -1;
 
+    private KataChopRecurrence() {
     }
 
     @Override
     public int chop(Integer value, List<Integer> ints) {
-        if (ints.get(0).equals(value)) {
-            return 0;
+        return chopHelper(0, value, ints);
+    }
+
+    private int chopHelper(final Integer startIndex, final Integer value, final List<Integer> ints) {
+        if (ints.size() != 0) {
+            if (ints.get(0).equals(value)) {
+                return startIndex;
+            } else {
+                int middleIndex = ints.size() / 2;
+                int middleValue = ints.get(middleIndex);
+                if (middleValue > value) {
+                    List<Integer> firstHalf = ints.subList(0, middleIndex);
+                    return chopHelper(startIndex, value, firstHalf);
+                } else {
+                    List<Integer> secondHalf = ints.subList(middleIndex, ints.size());
+                    return chopHelper(startIndex + middleIndex, value, secondHalf);
+                }
+            }
+        } else {
+            return NOT_FOUND;
         }
-        return -1;
     }
 
     public static KataChop create() {

@@ -2,7 +2,7 @@ package kata.chop;
 
 import org.junit.Test;
 
-import java.util.Arrays;
+import java.util.*;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -25,7 +25,52 @@ public class TestKata {
     }
 
     @Test
+    public void chopRecurrenceTwoElement() {
+        List<Integer> testList = Arrays.asList(1, 5);
+        assertEquals(0, chop.chop(1, testList));
+        assertEquals(1, chop.chop(5, testList));
+    }
+
+    @Test
+    public void chopRecurrenceThreeElement() {
+        List<Integer> testList = Arrays.asList(1, 5, 7);
+        assertEquals(0, chop.chop(1, testList));
+        assertEquals(1, chop.chop(5, testList));
+        assertEquals(2, chop.chop(7, testList));
+    }
+
+    @Test
     public void chopRecurrenceFourElement() {
-        assertEquals(2, chop.chop(3, Arrays.asList(1, 2, 3, 4)));
+        List<Integer> testList = Arrays.asList(1, 2, 3, 4);
+        assertEquals(0, chop.chop(1, testList));
+        assertEquals(1, chop.chop(2, testList));
+        assertEquals(2, chop.chop(3, testList));
+        assertEquals(3, chop.chop(4, testList));
+    }
+
+    @Test
+    public void chopRecurrenceFiveElement() {
+        List<Integer> testList = Arrays.asList(1, 2, 3, 4, 12);
+        assertEquals(0, chop.chop(1, testList));
+        assertEquals(1, chop.chop(2, testList));
+        assertEquals(2, chop.chop(3, testList));
+        assertEquals(4, chop.chop(12, testList));
+    }
+
+
+    @Test
+    public void chopRecurrence100000Element() {
+        Set<Integer> prepSet = new TreeSet<Integer>();
+        Random rand = new Random();
+        for (int i = 0; i < 1000000; i++) {
+            prepSet.add(rand.nextInt());
+        }
+
+        List<Integer> testList = new ArrayList(prepSet);
+        int randValue = testList.get((int) (Math.random() * testList.size()));
+        int expectedIndex = testList.indexOf(randValue);
+
+        assertEquals(expectedIndex, chop.chop(randValue, testList));
     }
 }
+

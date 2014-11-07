@@ -19,7 +19,7 @@ public class KataChopRecurrence implements KataChop {
     }
 
     private int chopHelper(final Integer startIndex, final Integer value, final List<Integer> integers) {
-        if (integers.size() != 0) {
+        if (integers.isEmpty()) {
             if (integers.get(0).equals(value)) {
                 return startIndex;
             } else {

@@ -23,8 +23,7 @@ public class KataChopRecurrence implements KataChop {
                 return startIndex;
             } else {
                 int middleIndex = ints.size() / 2;
-                int middleValue = ints.get(middleIndex);
-                if (middleValue > value) {
+                if (ints.get(middleIndex) > value) {
                     List<Integer> firstHalf = ints.subList(0, middleIndex);
                     return chopHelper(startIndex, value, firstHalf);
                 } else {

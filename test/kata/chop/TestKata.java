@@ -16,6 +16,17 @@ public class TestKata {
     private final KataChop chop = KataChopRecurrence.create();
 
     @Test
+    public void chopRecurrencyEmptyList() {
+        assertEquals(-1, chop.chop(1, Collections.EMPTY_LIST));
+    }
+
+    @Test
+    public void chopRecurrenceSameNumbers() {
+        assertEquals(3, chop.chop(1, Arrays.asList(1, 1, 1, 1, 2, 3)));
+    }
+
+
+    @Test
     public void chopRecurrenceNotFound() {
         assertEquals(-1, chop.chop(0, Arrays.asList(1, 2, 3)));
     }

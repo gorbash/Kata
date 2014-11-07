@@ -79,10 +79,13 @@ public class TestKata {
         }
 
         List<Integer> testList = new ArrayList<Integer>(prepSet);
-        int randValue = testList.get((int) (Math.random() * testList.size()));
-        int expectedIndex = testList.indexOf(randValue);
 
-        assertEquals(expectedIndex, chop.chop(randValue, testList));
+        for (int i = 0; i < 1000; i++) {
+            int randValue = testList.get((int) (Math.random() * testList.size()));
+            int expectedIndex = testList.indexOf(randValue);
+
+            assertEquals(expectedIndex, chop.chop(randValue, testList));
+        }
     }
 }
 

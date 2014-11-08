@@ -13,38 +13,38 @@ import static junit.framework.Assert.assertEquals;
 
 public class TestKata {
 
-    private final KataChop chop = KataChopRecurrence.create();
+    private final KataChop chop = KataChopRegular.create();
 
     @Test
-    public void chopRecurrencyEmptyList() {
+    public void chopEmptyList() {
         assertEquals(KataChop.NOT_FOUND, chop.chop(1, Collections.EMPTY_LIST));
     }
 
     @Test
-    public void chopRecurrenceSameNumbers() {
+    public void chopSameNumbers() {
         assertEquals(3, chop.chop(1, Arrays.asList(1, 1, 1, 1, 2, 3)));
     }
 
 
     @Test
-    public void chopRecurrenceNotFound() {
+    public void chopNotFound() {
         assertEquals(KataChop.NOT_FOUND, chop.chop(0, Arrays.asList(1, 2, 3)));
     }
 
     @Test
-    public void chopRecurrenceOneElement() {
+    public void chopOneElement() {
         assertEquals(0, chop.chop(1, Arrays.asList(1)));
     }
 
     @Test
-    public void chopRecurrenceTwoElement() {
+    public void chopTwoElement() {
         List<Integer> testList = Arrays.asList(1, 5);
         assertEquals(0, chop.chop(1, testList));
         assertEquals(1, chop.chop(5, testList));
     }
 
     @Test
-    public void chopRecurrenceThreeElement() {
+    public void chopThreeElement() {
         List<Integer> testList = Arrays.asList(1, 5, 7);
         assertEquals(0, chop.chop(1, testList));
         assertEquals(1, chop.chop(5, testList));
@@ -52,7 +52,7 @@ public class TestKata {
     }
 
     @Test
-    public void chopRecurrenceFourElement() {
+    public void chopFourElement() {
         List<Integer> testList = Arrays.asList(1, 2, 3, 4);
         assertEquals(0, chop.chop(1, testList));
         assertEquals(1, chop.chop(2, testList));
@@ -61,7 +61,7 @@ public class TestKata {
     }
 
     @Test
-    public void chopRecurrenceFiveElement() {
+    public void chopFiveElement() {
         List<Integer> testList = Arrays.asList(1, 2, 3, 4, 12);
         assertEquals(0, chop.chop(1, testList));
         assertEquals(1, chop.chop(2, testList));
@@ -71,11 +71,11 @@ public class TestKata {
 
 
     @Test
-    public void chopRecurrence1000000Element() {
+    public void chop1000000Element() {
         Set<Integer> prepSet = new TreeSet<Integer>();
         Random rand = new Random();
         for (int i = 0; i < 1000000; i++) {
-            prepSet.add(rand.nextInt());
+            prepSet.add(rand.nextInt(Integer.MAX_VALUE));
         }
 
         List<Integer> testList = new ArrayList<Integer>(prepSet);

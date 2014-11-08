@@ -38,6 +38,7 @@ public abstract class TestKata {
     @Test
     public void chopNotFound() {
         assertEquals(KataChop.NOT_FOUND, chop.chop(0, Arrays.asList(1, 2, 3)));
+
     }
 
     @Test
@@ -89,7 +90,7 @@ public abstract class TestKata {
 
         List<Integer> testList = new ArrayList<Integer>(prepSet);
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 1; i++) {
             int randValue = testList.get((int) (Math.random() * testList.size()));
             int expectedIndex = testList.indexOf(randValue);
 

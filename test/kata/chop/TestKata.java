@@ -1,5 +1,6 @@
 package kata.chop;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.*;
@@ -11,9 +12,17 @@ import static junit.framework.Assert.assertEquals;
  * Test suite for binary search implementation
  */
 
-public class TestKata {
+public abstract class TestKata {
 
-    private final KataChop chop = KataChopRegular.create();
+
+    abstract KataChop getKataChop();
+
+    private KataChop chop;
+
+    @Before
+    public void setup() {
+        chop = getKataChop();
+    }
 
     @Test
     public void chopEmptyList() {

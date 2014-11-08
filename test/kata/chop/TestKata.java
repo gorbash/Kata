@@ -9,7 +9,7 @@ import static junit.framework.Assert.assertEquals;
 
 /**
  * Created by GorbasH on 2014-11-07.
- * Test suite for binary search implementation
+ * Abstract test suite for binary search implementation
  */
 
 public abstract class TestKata {

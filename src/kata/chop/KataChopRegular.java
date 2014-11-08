@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Created by GorbasH on 2014-11-08.
+ * Implementation of binary search with simple iterative way
  */
 public class KataChopRegular implements KataChop {
 

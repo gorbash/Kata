@@ -8,8 +8,6 @@ import java.util.List;
  */
 public class KataChopRecurrence implements KataChop {
 
-    private static final int NOT_FOUND = -1;
-
     private KataChopRecurrence() {
     }
 

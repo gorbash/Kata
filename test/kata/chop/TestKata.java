@@ -17,7 +17,7 @@ public class TestKata {
 
     @Test
     public void chopRecurrencyEmptyList() {
-        assertEquals(-1, chop.chop(1, Collections.EMPTY_LIST));
+        assertEquals(KataChop.NOT_FOUND, chop.chop(1, Collections.EMPTY_LIST));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class TestKata {
 
     @Test
     public void chopRecurrenceNotFound() {
-        assertEquals(-1, chop.chop(0, Arrays.asList(1, 2, 3)));
+        assertEquals(KataChop.NOT_FOUND, chop.chop(0, Arrays.asList(1, 2, 3)));
     }
 
     @Test

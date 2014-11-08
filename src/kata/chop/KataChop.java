@@ -8,4 +8,5 @@ import java.util.List;
  */
 public interface KataChop {
     int chop(Integer value, List<Integer> integers);
+    public static final int NOT_FOUND = -1;
 }

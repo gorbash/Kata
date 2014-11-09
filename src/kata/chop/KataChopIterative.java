@@ -6,9 +6,9 @@ import java.util.List;
  * Created by GorbasH on 2014-11-08.
  * Implementation of binary search with simple iterative way
  */
-public class KataChopRegular implements KataChop {
+public class KataChopIterative implements KataChop {
 
-    private KataChopRegular() {
+    private KataChopIterative() {
     }
 
     @Override
@@ -35,6 +35,6 @@ public class KataChopRegular implements KataChop {
     }
 
     public static KataChop create() {
-        return new KataChopRegular();
+        return new KataChopIterative();
     }
 }

@@ -12,7 +12,7 @@ import static junit.framework.Assert.assertEquals;
  * Abstract test suite for binary search implementation
  */
 
-public abstract class TestKata {
+public abstract class TestKataChop {
 
 
     abstract KataChop getKataChop();

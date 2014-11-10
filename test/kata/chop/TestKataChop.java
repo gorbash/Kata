@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.util.*;
 
 import static junit.framework.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 /**
  * Created by GorbasH on 2014-11-07.
@@ -37,8 +39,7 @@ public abstract class TestKataChop {
 
     @Test
     public void chopNotFound() {
-        assertEquals(KataChop.NOT_FOUND, chop.chop(0, Arrays.asList(1, 2, 3)));
-
+        assertThat(chop.chop(0, Arrays.asList(1, 2, 3)), is(KataChop.NOT_FOUND));
     }
 
     @Test
@@ -82,13 +83,13 @@ public abstract class TestKataChop {
 
     @Test
     public void chop1000000Element() {
-        Set<Integer> prepSet = new TreeSet<Integer>();
+        Set<Integer> prepSet = new TreeSet<>();
         Random rand = new Random();
         for (int i = 0; i < 1000000; i++) {
             prepSet.add(rand.nextInt(Integer.MAX_VALUE));
         }
 
-        List<Integer> testList = new ArrayList<Integer>(prepSet);
+        List<Integer> testList = new ArrayList<>(prepSet);
 
         for (int i = 0; i < 1; i++) {
             int randValue = testList.get((int) (Math.random() * testList.size()));
